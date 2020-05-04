@@ -2,11 +2,9 @@
 #activate .
 using Knet
 using Images
-using Serialization
+# using Serialization
 ## Switch between Knet allocator and CuArrays allocator
 Knet.cuallocator() = false
-npics     = 32 # number of pics to use for traning
-newdim    = 416 # new size for pic upscaling; if you modify this you need to modify the network
 batchsize = 2
 xtype     = (Knet.gpu()>=0 ? Knet.KnetArray{Float32} : Array{Float32})
 ##
