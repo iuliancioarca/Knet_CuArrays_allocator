@@ -1,4 +1,4 @@
-npics     = 512 # number of pics to use for traning
+npics     = 6000 # number of pics to use for traning
 newdim    = 416 # new size for pic upscaling; if you modify this you need to modify the network
 # Load MNIST data:
 include(Knet.dir("data","mnist.jl"))

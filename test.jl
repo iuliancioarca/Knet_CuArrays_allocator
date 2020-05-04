@@ -5,9 +5,9 @@ using Images
 # using Serialization
 ## Switch between Knet allocator and CuArrays allocator
 Knet.cuallocator() = false
-batchsize = 2
+batchsize = 32
 xtype     = (Knet.gpu()>=0 ? Knet.KnetArray{Float32} : Array{Float32})
-##
+## Define Layers and load data
 include("types.jl")
 include("load_prepare.jl")
 # generate dataset for training and testing
@@ -34,10 +34,10 @@ model = Chain(
     Dense(2250,10,identity)
     )
 # Configure optimizer
-optimizer = sgd(model,repeat(dtrn,2);lr=0.01)
+optimizer = sgd(model,repeat(dtrn,10);lr=0.01)
 # Now train
 progress!(optimizer)
 # # accuracy doesn't matter
 # accuracy(model, dtst)
 # # save model to disk
-# serialize("model.a",model)
+# serialize("model.a",Knet.cpucopy(model))

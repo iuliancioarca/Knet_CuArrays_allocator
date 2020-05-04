@@ -1,7 +1,7 @@
 # Define convolutional layer:
 struct Conv; w; stride; padding; f;end #Define convolutional layer
 (c::Conv)(x)= c.f.(conv4(c.w,x; stride = c.stride, padding = c.padding))
-Conv(w1::Int,w2::Int,cx::Int,cy::Int,st,pd,f) = Conv(randn(Float32,w1,w2,cx,cy),st,pd,f)
+Conv(w1::Int,w2::Int,cx::Int,cy::Int,st,pd,f) = Conv(param(w1,w2,cx,cy),st,pd,f)
 
 # Define dense layer:
 struct Dense; w; b; f; end
