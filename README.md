@@ -5,3 +5,4 @@ Speed and memory footprint of Knet vs CuArrays allocators
 #activate .
 include("test.jl")
 ```
+modify ```Knet.cuallocator() = false``` to use Knet allocator
