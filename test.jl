@@ -1,10 +1,12 @@
 #cd(raw"C:\Framework\Julia\Knet_CuArrays_allocator")
 #activate .
+# ENV["JULIA_CUDA_MEMORY_POOL"] = "split"
+using CuArrays
 using Knet
 using Images
 # using Serialization
 ## Switch between Knet allocator and CuArrays allocator
-Knet.cuallocator() = false
+Knet.cuallocator() = true
 batchsize = 32
 xtype     = (Knet.gpu()>=0 ? Knet.KnetArray{Float32} : Array{Float32})
 ## Define Layers and load data
