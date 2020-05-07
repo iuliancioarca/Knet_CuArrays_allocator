@@ -1,0 +1,1523 @@
+Batchsize=32, binned pool
+
+CuArrays.memory_status()
+Effective GPU memory usage: 34.92% (4.190 GiB/12.000 GiB)
+CuArrays allocator usage: 2.085 GiB
+BinnedPool usage: 2.085 GiB (2.085 GiB allocated, 0 bytes cached)
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000c10200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 2.000 KiB at 0x0000000b05bef000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] cudnnSoftmaxForward(::KnetArray{Float32,4}; algo::Int64, mode::Int64, alpha::Int64, handle::Ptr{Nothing}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:157
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol},NamedTuple{(:algo,),Tuple{Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] cudnnSoftmaxForward(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol},NamedTuple{(:algo,),Tuple{Int64}}}) at .\none:0
+ [12] generic_softmax(::AutoGrad.Result{KnetArray{Float32,2}}, ::Int64, ::Function; dims::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:141
+ [13] #logp#705 at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:14 [inlined]
+ [14] nll(::AutoGrad.Result{KnetArray{Float32,2}}, ::Array{UInt8,1}; dims::Int64, average::Bool) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:268
+ [15] nll(::AutoGrad.Result{KnetArray{Float32,2}}, ::Array{UInt8,1}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:267
+ [16] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [17] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [18] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [19] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [20] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [21] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [22] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [24] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [25] include(::String) at .\client.jl:439
+ [26] top-level scope at REPL[4]:1
+ [27] eval(::Module, ::Any) at .\boot.jl:331
+ [28] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [29] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [30] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64.000 MiB at 0x0000000c90f00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 16.000 MiB at 0x0000000c0e200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000b08200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 2.000 MiB at 0x0000000c90d00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000c75a00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 KiB at 0x0000000b061dc400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,2}(::Array{Float64,2}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94 [inlined]
+ [9] #param#698 at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102 [inlined]
+ [10] param(::Int64, ::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Dense(::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:9
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64 bytes at 0x0000000b061fc400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95 [inlined]
+ [8] KnetArray{Float32,N} where N(::Array{Float64,1}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param0(::Int64; atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:103
+ [11] param0 at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:103 [inlined]
+ [12] Dense(::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:9
+ [13] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [14] include(::String) at .\client.jl:439
+ [15] top-level scope at REPL[4]:1
+ [16] eval(::Module, ::Any) at .\boot.jl:331
+ [17] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [18] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [19] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000d0d700000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64.000 MiB at 0x0000000b0ac00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64.000 MiB at 0x0000000c88d00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 338.000 MiB at 0x0000000cbe100000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000cf4500000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:76 [inlined]
+ [7] convert at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:115 [inlined]
+ [8] convert(::Type{KnetArray{Float32,N} where N}, ::Array{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:114
+ [9] iterate(::Knet.Data{Tuple{KnetArray{Float32,4},Array{UInt8,1}}}, ::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\data.jl:63
+ [10] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\data.jl:105 [inlined]
+ [11] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:20 [inlined]
+ [12] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [13] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [14] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [15] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [16] include(::String) at .\client.jl:439
+ [17] top-level scope at REPL[4]:1
+ [18] eval(::Module, ::Any) at .\boot.jl:331
+ [19] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [20] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [21] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000d05700000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 KiB at 0x0000000c83ac0000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 169.000 MiB at 0x0000000cd3300000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 8.000 MiB at 0x0000000d7ff00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] pool(::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:128
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] pool(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at .\none:0
+ [12] (::Pool)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:13
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000c7ca00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 MiB at 0x0000000d1f900000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 2.000 MiB at 0x0000000b0a200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 KiB at 0x0000000b05bf3a00
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000c08200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] pool(::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:128
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] pool(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at .\none:0
+ [12] (::Pool)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:13
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 16.000 MiB at 0x0000000c0f200000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 2.000 KiB at 0x0000000b05be0600
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar(::KnetArray{Float32,2}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168
+ [9] broadcasted(::typeof(+), ::KnetArray{Float32,2}, ::KnetArray{Float32,1}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\binary.jl:42
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(+), ::AutoGrad.Result{KnetArray{Float32,2}}, ::Param{KnetArray{Float32,1}}) at .\none:0
+ [13] (::Dense)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:8
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 KiB at 0x0000000b06130400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 MiB at 0x0000000c22400000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 338.000 MiB at 0x0000000ca8f00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#276 at .\none:0 [inlined]
+ [12] (::Conv)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 512.000 KiB at 0x0000000c05080000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64.000 MiB at 0x0000000c12400000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 8.000 MiB at 0x0000000d02600000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 169.000 MiB at 0x0000000cddc00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 1024.000 KiB at 0x0000000c84c00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 2.000 KiB at 0x0000000b009f2a00
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] *(::KnetArray{Float32,2}, ::KnetArray{Float32,2}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\linalg.jl:16
+ [10] forw(::Function, ::Param{KnetArray{Float32,2}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] *(::Param{KnetArray{Float32,2}}, ::AutoGrad.Result{KnetArray{Float32,2}}) at .\none:0
+ [13] (::Dense)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:8
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 16.000 KiB at 0x0000000b05be1c00
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 1024 bytes at 0x0000000b05bedc00
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] #conv4w#321 at .\none:0 [inlined]
+ [11] #back#278 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64 bytes at 0x0000000b05be1a00
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar(::KnetArray{Float32,2}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168
+ [9] sum(::KnetArray{Float32,2}; dims::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\reduction.jl:52
+ [10] unbroadcast(::Param{KnetArray{Float32,1}}, ::KnetArray{Float32,2}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\unbroadcast.jl:24
+ [11] back(::typeof(Base.Broadcast.broadcasted), ::Type{AutoGrad.Arg{3}}, ::KnetArray{Float32,2}, ::AutoGrad.Result{KnetArray{Float32,2}}, ::typeof(+), ::AutoGrad.Result{KnetArray{Float32,2}}, ::Param{KnetArray{Float32,1}}) at .\none:0
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 64.000 MiB at 0x0000000cf0500000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] pool(::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:128
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] pool(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at .\none:0
+ [12] (::Pool)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:13
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 16.000 MiB at 0x0000000c8dd00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] pool(::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:128
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] pool(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at .\none:0
+ [12] (::Pool)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:13
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 512.000 KiB at 0x0000000d81080000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 MiB at 0x0000000c69a00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] pool(::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:128
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,4}}; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] pool(::AutoGrad.Result{KnetArray{Float32,4}}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol,Symbol},NamedTuple{(:window, :stride, :padding),Tuple{Int64,Int64,Int64}}}) at .\none:0
+ [12] (::Pool)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:13
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 8.000 MiB at 0x0000000b0a400000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 512.000 KiB at 0x0000000b06158400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 16.000 KiB at 0x0000000b061d8400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 1024 bytes at 0x0000000b06130000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000cfb500000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 KiB at 0x0000000c83aa0000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:169 [inlined]
+ [9] A_mul_Bt(::KnetArray{Float32,2}, ::KnetArray{Float32,2}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\linalg.jl:17
+ [10] forw(::Function, ::KnetArray{Float32,2}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] A_mul_Bt at .\none:0 [inlined]
+ [13] back(::typeof(*), ::Type{AutoGrad.Arg{1}}, ::KnetArray{Float32,2}, ::AutoGrad.Result{KnetArray{Float32,2}}, ::Param{KnetArray{Float32,2}}, ::AutoGrad.Result{KnetArray{Float32,2}}) at .\none:0
+ [14] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [15] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [16] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [17] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [18] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [19] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [20] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [21] include(::String) at .\client.jl:439
+ [22] top-level scope at REPL[4]:1
+ [23] eval(::Module, ::Any) at .\boot.jl:331
+ [24] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [25] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [26] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 1024.000 KiB at 0x0000000b0ec00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 8.000 MiB at 0x0000000d01d00000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] conv4(::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:39
+ [10] forw(::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] #conv4#264 at .\none:0 [inlined]
+ [12] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [13] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [14] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [15] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [16] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [17] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [18] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [19] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [20] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [21] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [23] include(::String) at .\client.jl:439
+ [24] top-level scope at REPL[4]:1
+ [25] eval(::Module, ::Any) at .\boot.jl:331
+ [26] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [27] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [28] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 512.000 KiB at 0x0000000d02580000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 8.000 MiB at 0x0000000d01500000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] conv4w(::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}; handle::Ptr{Nothing}, alpha::Int64, o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\conv.jl:71
+ [10] conv4w(::Param{KnetArray{Float32,4}}, ::AutoGrad.Result{KnetArray{Float32,4}}, ::KnetArray{Float32,4}; o::Base.Iterators.Pairs{Symbol,Int64,Tuple{Symbol,Symbol},NamedTuple{(:stride, :padding),Tuple{Int64,Int64}}}) at .\none:0
+ [11] #back#266 at .\none:0 [inlined]
+ [12] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:165
+ [13] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [14] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [15] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [16] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [17] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [18] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [19] include(::String) at .\client.jl:439
+ [20] top-level scope at REPL[4]:1
+ [21] eval(::Module, ::Any) at .\boot.jl:331
+ [22] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [23] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [24] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128.000 KiB at 0x0000000b06138400
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] KnetArray{Float32,4}(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:95
+ [8] KnetArray{Float32,N} where N(::Array{Float64,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:94
+ [9] param(::Int64, ::Vararg{Int64,N} where N; init::Function, atype::Type{T} where T) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [10] param(::Int64, ::Int64, ::Vararg{Int64,N} where N) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:102
+ [11] Conv(::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Int64, ::Function) at C:\Projects\Knet_CuArrays_allocator\types.jl:4
+ [12] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:20
+ [13] include(::String) at .\client.jl:439
+ [14] top-level scope at REPL[4]:1
+ [15] eval(::Module, ::Any) at .\boot.jl:331
+ [16] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [17] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [18] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 32.000 MiB at 0x0000000cf6500000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:167 [inlined]
+ [9] broadcasted(::typeof(relu), ::KnetArray{Float32,4}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\unary.jl:16
+ [10] forw(::Function, ::Function, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] broadcasted(::typeof(relu), ::AutoGrad.Result{KnetArray{Float32,4}}) at .\none:0
+ [13] (::Conv)(::AutoGrad.Result{KnetArray{Float32,4}}) at C:\Projects\Knet_CuArrays_allocator\types.jl:3
+ [14] (::Chain)(::KnetArray{Float32,4}) at C:\Projects\Knet_CuArrays_allocator\types.jl:20
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
+
+Outstanding memory allocation of 128 bytes at 0x0000000b05bfd000
+Stacktrace:
+ [1] CuArray{UInt8,1,P} where P(::UndefInitializer, ::Tuple{Int64}) at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:107
+ [2] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:115 [inlined]
+ [3] CuArray at C:\Julia-1.4.0\.julia\packages\CuArrays\YaboN\src\array.jl:116 [inlined]
+ [4] KnetPtrCu(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\cuarray.jl:89
+ [5] Knet.KnetPtr(::Int64) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\kptr.jl:103
+ [6] KnetArray at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:82 [inlined]
+ [7] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:164 [inlined]
+ [8] similar at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:168 [inlined]
+ [9] getindex(::KnetArray{Float32,2}, ::Array{Int64,1}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\karray.jl:618
+ [10] forw(::Function, ::AutoGrad.Result{KnetArray{Float32,2}}, ::Vararg{Any,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:66
+ [11] forw at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:65 [inlined]
+ [12] getindex(::AutoGrad.Result{KnetArray{Float32,2}}, ::Array{Int64,1}) at .\none:0
+ [13] nll(::AutoGrad.Result{KnetArray{Float32,2}}, ::Array{UInt8,1}; dims::Int64, average::Bool) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:268
+ [14] nll(::AutoGrad.Result{KnetArray{Float32,2}}, ::Array{UInt8,1}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\loss.jl:267
+ [15] (::Chain)(::KnetArray{Float32,4}, ::Array{UInt8,1}) at C:\Projects\Knet_CuArrays_allocator\types.jl:21
+ [16] (::Knet.var"#693#694"{Knet.Minimize{Knet.Repeat},Tuple{KnetArray{Float32,4},Array{UInt8,1}}})() at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:205
+ [17] differentiate(::Function; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:144
+ [18] differentiate at C:\Julia-1.4.0\.julia\packages\AutoGrad\FSgUc\src\core.jl:135 [inlined]
+ [19] iterate at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\train.jl:23 [inlined]
+ [20] iterate(::Knet.Progress{Knet.Minimize{Knet.Repeat}}, ::Tuple{Int64,Int64}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:70
+ [21] progress!(::Knet.Minimize{Knet.Repeat}; o::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [22] progress!(::Knet.Minimize{Knet.Repeat}) at C:\Julia-1.4.0\.julia\packages\Knet\IFCgR\src\progress.jl:58
+ [23] top-level scope at C:\Projects\Knet_CuArrays_allocator\test.jl:41
+ [24] include(::String) at .\client.jl:439
+ [25] top-level scope at REPL[4]:1
+ [26] eval(::Module, ::Any) at .\boot.jl:331
+ [27] eval_user_input(::Any, ::REPL.REPLBackend) at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:86
+ [28] macro expansion at D:\buildbot\worker\package_win64\build\usr\share\julia\stdlib\v1.4\REPL\src\REPL.jl:118 [inlined]
+ [29] (::REPL.var"#26#27"{REPL.REPLBackend})() at .\task.jl:358
